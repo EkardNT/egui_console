@@ -1,7 +1,7 @@
 workspace = { members = ["demo"] }
 [package]
 name = "egui_console"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 exclude = [
     ".vscode"
@@ -17,16 +17,15 @@ categories=["gui"]
 
 [dependencies]
 
-eframe = "0.28.1"
-egui = "0.28.1"
+egui = "0.29.1"
 itertools = "0.13.0"
 
-serde = "1.0.204"
-serde_derive = "1.0.204"
+serde = { version = "1.0.204", optional = true }
+serde_derive = { version = "1.0.204", optional = true }
 
 
 [features]
-persistence=[]
+persistence=["dep:serde", "dep:serde_derive"]
 
 
 

@@ -245,24 +245,9 @@ pub(crate) fn fs_tab_complete(search: &str, nth: usize) -> Option<PathBuf> {
     }
     None
 }
+
 #[test]
 fn test_digest_line() {
-    let mut console = ConsoleWindow::new(">> ");
-    let result = console.digest_line("cd foo");
-    assert_eq!(result, vec!["cd", "foo"]);
-    let result = console.digest_line("cd \"foo bar\"");
-    assert_eq!(result, vec!["cd", "\"foo bar\""]);
-    let result = console.digest_line("cd \"foo bar");
-    assert_eq!(result, vec!["cd", "\"foo", "bar"]);
-    let result = console.digest_line("cd foo bar\"");
-    assert_eq!(result, vec!["cd", "foo", "bar\""]);
-    let result = console.digest_line("\"cd foo bar\"");
-    assert_eq!(result, vec!["\"cd", "foo", "bar\""]);
-    let result = console.digest_line("cd\" foo bar\"");
-    assert_eq!(result, vec!["cd\"", "foo", "bar\""]);
-}
-#[test]
-fn test_digest_line2() {
     // let mut console = ConsoleWindow::new(">> ");
     let result = ConsoleWindow::digest_line("cd foo");
     assert_eq!(result, vec!["cd", "foo"]);
